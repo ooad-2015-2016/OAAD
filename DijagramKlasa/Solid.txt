@@ -1,0 +1,43 @@
+1.Princip pojedinaène odgovornosti
+
+Ovaj princip glasi: "Klasa bi trebala imati samo jedan razlog za promjenu."
+
+Princip pojedinaène odgovornosti nije zadovoljen za klasu REZERVACIJA jer je ta klasa optereæena sa previše operacija.
+U njoj se vrši rezervacija leta, obraèun cijene karte,obraèun cijene prtljaga, provjera popusta. Najbolje rješenje bi
+bilo da smo operacije vezane za obraèun prebacili u neku novu klasu koju bi mogli nazvati "OBRAÈUN" koja bi vršila sve te
+operacija, pa bi veæ postojeæa klasa Rezervacija bila rastereæena, odnosno imali bi samo jedan razlog za promjenu.
+
+Isti problem postoji i u klasi LET koja je takoðer preoptereèena pa bi operacije +DajCijenuLeta i +PostaviCijenuLeta trebalo
+prebaciti u novu klasu OBRAÈUN tako da je svaka od ovih klasa zadužena samo za jednu stvar.
+
+2. Otvoreno zatvoren princip
+
+Ovaj princip glasi: "Entiteti softvera trebali bi biti otvoreni za nadogradnju, ali zatvoreni za modifikacije."
+
+Ovaj princip je zadovoljen za sve klase u našem projektu jer možemo vršiti nadogradnju u bilo kojoj od postojeæih klasa, dok
+ako bi izvršili modifikaciju npr. u klasi OSOBA onda više ne mogli izvršiti generalizaciju koju smo napravili.
+
+3.Liskov princip zamjene
+
+Ovaj princip glas:"Podtipovi moraju biti zamjenljivi osnovnim tipovima."
+
+Liskov princip nije narušen zato što u klasi OSOBA nemamo nijednu operaciju koja ne bi imala smisla ukoliko bi je pozvali
+nakon što neku od izvedenih klasa(Kupac, Administrator, Uposlenik) zamjenimo sa osnovnom klasom OSOBA. Ovo takoðer vrijedi i
+ako bi dodali neku novu klasu tipa Poslovoða, koja bi imala neke svoje dodatne atribute i operacije ali bi mogla biti zamijenjena 
+osnovnom klasom OSOBA.
+
+4.Princip inverzije ovisnosti
+
+Ovaj princip glasi:"Moduli visokog nivoa ne bi trebali ovisiti od modula niskog nivoa, oba bi trebala da ovise od apstrakcija.
+Moduli ne bi trebali ovisiti od detalja. Detalji bi trebali biti ovisni od apstrakcija."
+
+Ovaj princip je narušen jer osnovna klasa nije apstraktna i takoðer nije kreiran niti jedan interfejs.
+
+5.Princip izoliranja interfejsa
+
+Ovaj princip glasi:"Klijenti ne treba da ovise o metodama koje neæe upotrebljavati."
+
+Princip izoliranja interfejsa nije narušen jer se u svakoj klasi, odnosno interfejsu te klase kada bi postojao, ne nalaze metode 
+koje su suvišne ili koje nemaju neki znaèaj za korisnika. Naš sistem je prvenstveno i baziran za Uposlenika, a ne Kupca tako da sve 
+metode koje se nalaze u klasama Rezervacija ili Aviokompanija moraju da se nalaze tu i od vitalnog su znaèaja za funkcioniranje
+sistema.
