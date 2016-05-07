@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="ProjekatAviokompanija.App"
+    x:Class="Aviokompanija.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProjekatAviokompanija"
+    xmlns:local="using:Aviokompanija"
     RequestedTheme="Light">
 
 </Application>

@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="ef8212e2-f624-4141-b101-a6bd6e084ff6"
-    Publisher="CN=Anisa"
+    Name="1ccb0520-7fd4-42c6-bf88-d75edb53a88d"
+    Publisher="CN=lenovo"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ef8212e2-f624-4141-b101-a6bd6e084ff6" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1ccb0520-7fd4-42c6-bf88-d75edb53a88d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ProjekatAviokompanija</DisplayName>
-    <PublisherDisplayName>Anisa</PublisherDisplayName>
+    <DisplayName>Aviokompanija</DisplayName>
+    <PublisherDisplayName>lenovo</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="ProjekatAviokompanija.App">
+      EntryPoint="Aviokompanija.App">
       <uap:VisualElements
-        DisplayName="ProjekatAviokompanija"
+        DisplayName="Aviokompanija"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ProjekatAviokompanija"
+        Description="Aviokompanija"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
