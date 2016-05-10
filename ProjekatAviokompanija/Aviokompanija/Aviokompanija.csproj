@@ -93,6 +93,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\logo.jpg" />
+    <Content Include="Views\Images\logo.png" />
+    <Content Include="Views\Images\oblaci.jpg" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
