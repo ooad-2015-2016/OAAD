@@ -6,17 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width=" 380" Height="250" MaxWidth=" 380" MaxHeight="250" MinWidth=" 380" MinHeight="250">
+    Width=" 380" Height="260"  MaxWidth=" 380" MaxHeight="260" MinWidth=" 380" MinHeight="260"  >
 
-    <Grid >
-        <Image Source="Images/oblaci.jpg"></Image>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource= "Images/oblaci.jpg"/>
+        </Grid.Background>
 
-    <Image x:Name="image" Source="Images/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Height="59" Width="177" Margin="120,0,0,0" />
+        <Image x:Name="image"  Source="Images/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Height="59" Width="177" Margin="120,0,0,0" RenderTransformOrigin="0,-1" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="36,94,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="32" Width="81"/>
         <TextBox x:Name="username" HorizontalAlignment="Left" Margin="147,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="137" RenderTransformOrigin="0.5,0.5"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="36,131,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Height="32" Width="81"/>
         <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="147,131,0,0"   VerticalAlignment="Top" Height="24" Width="137" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="button" Content="Prijava" HorizontalAlignment="Left" Margin="147,204,0,0" VerticalAlignment="Top"/>
-    
+
     </Grid>
 </Page>
