@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +13,6 @@ namespace Aviokompanija.Models
         public int BrojSjedista { get; set; }
         public bool Dostupnost { get; set; } 
     }
+
+   
 }
