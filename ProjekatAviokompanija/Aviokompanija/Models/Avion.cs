@@ -1,6 +1,6 @@
-﻿using Microsoft.Data.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +9,14 @@ namespace Aviokompanija.Models
 {
     class Avion
     {
-        public int IdAviona { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int AvionId { get; set; }
+
+        public string Model { get; set; }
         public int BrojSjedista { get; set; }
         public bool Dostupnost { get; set; } 
     }
+
 
    
 }

@@ -13,6 +13,19 @@ namespace Aviokompanija.Models
         public string BrojTelefona { get; set; }
         public string Adresa { get; set; }
         public string Mail { get; set; }
-        public Osoba() { }
+
+        public Osoba()
+        {
+
+        }
+        public Osoba(string ime, string prezime, string brojTel, string adresa, string mail)
+        {
+            Ime = ime;
+            Prezime = prezime;
+            BrojTelefona = brojTel;
+            Adresa = adresa;
+            Mail = mail;
+        }
     }
+    
 }
