@@ -100,8 +100,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Administrator.cs" />
-    <Compile Include="Models\Aviokompanija.cs" />
+    <Compile Include="Helper\INavigationService.cs" />
+    <Compile Include="Helper\NavigationService.cs" />
+    <Compile Include="Helper\RelayCommand.cs" />
+    <Compile Include="Migrations\20160522195235_InitialMigration.cs" />
+    <Compile Include="Migrations\20160522195235_InitialMigration.designer.cs">
+      <DependentUpon>20160522195235_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AviokompanijaDbContextModelSnapshot.cs" />
     <Compile Include="Models\AviokompanijaDbContext.cs" />
     <Compile Include="Models\Avion.cs" />
     <Compile Include="Models\DefaultPodaci.cs" />
@@ -116,6 +122,9 @@
     </Compile>
     <Compile Include="Views\Meni.xaml.cs">
       <DependentUpon>Meni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PogledAviona.xaml.cs">
+      <DependentUpon>PogledAviona.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Meni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PogledAviona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

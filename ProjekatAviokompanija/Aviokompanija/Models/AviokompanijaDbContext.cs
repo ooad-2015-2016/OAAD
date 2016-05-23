@@ -12,11 +12,11 @@ namespace Aviokompanija.Models
 {
     class AviokompanijaDbContext : DbContext
     {
-        public DbSet<Administrator> Administratori { get; set; }
         public DbSet<Avion> Avioni { get; set; }
         public DbSet<Kupac> Kupci { get; set; }
         public DbSet<Let> Letovi { get; set; }
         public DbSet<Uposlenik> Uposlenici { get; set; }
+        public DbSet<Rezervacija> Rezervacije { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

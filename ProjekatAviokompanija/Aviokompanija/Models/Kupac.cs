@@ -12,8 +12,15 @@ namespace Aviokompanija.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int KupacId { get; set; }
 
-        public string BrojKartice { get; set; }
-        public DateTime IstekKartice { get; set; }
-        public int Cvc { get; set; }
+
+        public Kupac()
+        {
+
+        }
+        public Kupac(string ime, string prezime, string brojTel, string adresa, string mail):base(ime, prezime, brojTel, adresa, mail)
+        {
+            // IdUposlenik = 0;
+      
+        }
     }
 }

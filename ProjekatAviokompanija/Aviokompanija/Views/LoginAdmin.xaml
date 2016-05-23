@@ -14,7 +14,7 @@
             <ImageBrush ImageSource= "Images/oblaci.jpg" AlignmentX="Left" AlignmentY="Top" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <Image x:Name="image"  Source="Images/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="54" Width="340" />
+        <Image x:Name="image"  Source="Images/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,10,0" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="64,94,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="32" Width="81"/>
         <TextBox x:Name="username" HorizontalAlignment="Left" Margin="178,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="137" RenderTransformOrigin="0.5,0.5"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="64,131,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Height="32" Width="81"/>

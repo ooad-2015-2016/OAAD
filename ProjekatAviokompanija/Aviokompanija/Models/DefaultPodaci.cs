@@ -8,6 +8,56 @@ namespace Aviokompanija.Models
 {
     class DefaultPodaci
     {
-       
+        public static void Initialize(AviokompanijaDbContext context)
+        {
+            if (!context.Uposlenici.Any())
+            {
+                context.Uposlenici.AddRange(
+                    new Uposlenik()
+                    {
+                        Ime = "Huso",
+                        Prezime = "Husić",
+                        BrojTelefona = "0038762222222",
+                        Adresa = "Bulevar 20",
+                        Mail = "husohusic@etf.unsa.ba",
+                        Username="huso",
+                        Password="huso",
+                    }
+                );
+                context.SaveChanges();
+            }
+
+            if (!context.Avioni.Any())
+            {
+                context.Avioni.AddRange(
+                    new Avion()
+                    {
+                        Model = "Embraer 106",
+                        BrojSjedista = 100,
+                        Dostupnost = true,
+                    }
+                );
+                context.SaveChanges();
+            }
+
+            if (!context.Kupci.Any())
+            {
+                context.Kupci.AddRange(
+                    new Kupac()
+                    {
+                        Ime = "Muso",
+                        Prezime = "Musić",
+                        BrojTelefona = "0038762212222",
+                        Adresa = "Bulevar 130",
+                        Mail = "musomusic@etf.unsa.ba",
+                
+                    }
+                );
+                context.SaveChanges();
+            }
+
+           
+
+        }
     }
 }
