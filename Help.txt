@@ -1,0 +1,29 @@
+Sadržaj je namijenjen iskljuèivo korisnicima i uposlenicima aviokompanije OAAD, koja zadržava pravo na izmjene i dopune dokumenta.
+
+ÈPP(FAQ)
+1.Ne mogu se se prijaviti na server.
+
+Prvenstveno provjerite da li imate internet konekciju, jer ne vjerujemo da su naši programeri prilikom razvoja aplikacije pogriješili negdje.
+Ukoliko vaš ureðaj(kompjuter, tablet ili mobitel) ima urednu konekciju onda probajte da restartujete aplikaciju, zbog moguæeg preoptereèenja servera,
+jer naša aviokompanija je veoma popularna,za razliku od naše amaterske konkurencije, te samim time mnogo ljudi koristi našu aplikaciju.
+
+2.Nakon što se prijavim, ekran mi pobijeli i zaledi
+
+Žao nam je što Vam se to dešava, ali stvarno nije do nas.Razmislite da bacite to smeæe od kompjutera i kupite novi, pa neæete imati ovakve probleme.
+
+3.Napravila sam rezervaciju za let, ali on je nakon nekog vremena nestao sa liste ponuðenih letova.
+
+Problem se javlja usljed posljedice da su neki letovi odgoðeni zbog nevremena, teroristièkih napada ili jednostavno nemamo trenutno dovoljno aviona, pa je
+administrator izbrisao taj let sa liste.
+Povrat novca kupcu ne dajte! Ukoliko je klijent trenutno ljut,recite mu da  nazove naše ljubazno osoblje da im se nagovori.
+
+4.Klijent želi da rezerviše let ali on se ne nalazi na listi ponuðenih letova.
+
+Let se ne nalazi na listi zbog toga što je vjerovatno planiran tek za neki duži vremenski period, stoga neka razmisli da li zaista želi da rezerviše kartu,
+toliko unaprijed, jer nikad se ne zna, možda umre pa ne stigne da je iskoristi.
+Èlanovi porodice nek se ne nadaju povratu novca!
+
+5.Prijavljen sam kao administator, ali ne mogu izbrisati avion,koji je na popravci sa liste dostupnih aviona
+
+Kao prvo zašto bi to uopæe radili?Ako avion ima neki sitni krav, zar se moraju odmah obustaviti svi letovi sa njim? Dok god avion može poletjeti, politika firme 
+je jasna, a to je da se AVION NE BRIŠE SA LISTE. Kako æe avion sletiti ti ionako nije vaš posao, o tom æe da brinu naši poluprofesionalni piloti. 
