@@ -9,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,11 +37,11 @@ namespace Aviokompanija
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            using (var db = new AviokompanijaDbContext())
-            {
+          using (var db = new AviokompanijaDbContext())
+          {
                 db.Database.ApplyMigrations();
                 DefaultPodaci.Initialize(db);
-            }
+           }
         }
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace Aviokompanija
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
 
@@ -83,7 +84,7 @@ namespace Aviokompanija
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(Views.LoginAdmin), e.Arguments);
+                rootFrame.Navigate(typeof(Views.Pocetna), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
@@ -111,6 +112,26 @@ namespace Aviokompanija
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            // Each time a navigation event occurs, update the Back button's visibility
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
         }
     }
 }

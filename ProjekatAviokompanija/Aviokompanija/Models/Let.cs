@@ -18,8 +18,26 @@ namespace Aviokompanija.Models
         public string MjestoDolaska { get; set; }
         public DateTime VrijemePolaska { get; set; }
         public DateTime VrijemeDolaska { get; set; }
-        public decimal Cijena { get; set; }
+        public int Cijena { get; set; }
         public int BrojZauzetihMjesta { get; set; }
         public StatusLeta Status { get; set; }
+
+        public Let() {
+
+            }
+        public Let(Avion avion, string mjestoP, string mjestoD, DateTime vrijemeP, DateTime vrijemeD, int cijena, int mjesta, StatusLeta status)
+        {
+
+            AvionLeta = avion;
+            MjestoPolaska = mjestoP;
+            MjestoDolaska = mjestoD;
+            VrijemeDolaska = vrijemeD;
+            VrijemePolaska = vrijemeP;
+            Cijena = cijena;
+            BrojZauzetihMjesta = mjesta;
+            Status = status;
+
+        }
+
     }
 }

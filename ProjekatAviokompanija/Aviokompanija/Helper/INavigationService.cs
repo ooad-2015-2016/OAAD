@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjekatAutootpad.Autootpad.Helper
+namespace Aviokompanija.Helper
 {
     interface INavigationService
     {

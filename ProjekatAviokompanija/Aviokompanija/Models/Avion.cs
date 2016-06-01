@@ -14,19 +14,19 @@ namespace Aviokompanija.Models
 
         public string Model { get; set; }
         public int BrojSjedista { get; set; }
-        public bool Dostupnost { get; set; }
+        public int BrojLetova { get; set; }
 
 
         public Avion()
         {
 
         }
-        public Avion(string model, int brojSjedista, bool dostupnost)
+        public Avion(string model, int brojSjedista,int dostupnost)
         {
             // IdUposlenik = 0;
             Model = model;
             BrojSjedista = brojSjedista;
-            Dostupnost = dostupnost;
+            BrojLetova = dostupnost;
         }
     }
 }

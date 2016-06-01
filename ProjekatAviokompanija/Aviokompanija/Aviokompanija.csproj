@@ -93,7 +93,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\logo.png" />
+    <Content Include="Views\Images\logoo.bmp" />
     <Content Include="Views\Images\oblaci.jpg" />
+    <Content Include="Views\Images\slika.bmp" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -103,11 +105,12 @@
     <Compile Include="Helper\INavigationService.cs" />
     <Compile Include="Helper\NavigationService.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
-    <Compile Include="Migrations\20160522195235_InitialMigration.cs" />
-    <Compile Include="Migrations\20160522195235_InitialMigration.designer.cs">
-      <DependentUpon>20160522195235_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20160530203752_InitialMigration.cs" />
+    <Compile Include="Migrations\20160530203752_InitialMigration.designer.cs">
+      <DependentUpon>20160530203752_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AviokompanijaDbContextModelSnapshot.cs" />
+    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AviokompanijaDbContext.cs" />
     <Compile Include="Models\Avion.cs" />
     <Compile Include="Models\DefaultPodaci.cs" />
@@ -117,14 +120,31 @@
     <Compile Include="Models\Rezervacija.cs" />
     <Compile Include="Models\Uposlenik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\LoginAdmin.xaml.cs">
-      <DependentUpon>LoginAdmin.xaml</DependentUpon>
+    <Compile Include="ViewModels\AdminLetoviViewModel.cs" />
+    <Compile Include="ViewModels\AdminUposleniciViewModel.cs" />
+    <Compile Include="ViewModels\AvioniViewModel.cs" />
+    <Compile Include="ViewModels\PocetnaViewModel.cs" />
+    <Compile Include="ViewModels\RezervacijaViewModel.cs" />
+    <Compile Include="Views\AdministratorMeni.xaml.cs">
+      <DependentUpon>AdministratorMeni.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Meni.xaml.cs">
-      <DependentUpon>Meni.xaml</DependentUpon>
+    <Compile Include="Views\AdminLetovi.xaml.cs">
+      <DependentUpon>AdminLetovi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PogledAviona.xaml.cs">
-      <DependentUpon>PogledAviona.xaml</DependentUpon>
+    <Compile Include="Views\AdminUposlenici.xaml.cs">
+      <DependentUpon>AdminUposlenici.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Avioni.xaml.cs">
+      <DependentUpon>Avioni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pocetna.xaml.cs">
+      <DependentUpon>Pocetna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UposlenikMeni.xaml.cs">
+      <DependentUpon>UposlenikMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UposlenikRezervacija.xaml.cs">
+      <DependentUpon>UposlenikRezervacija.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -148,22 +168,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\LoginAdmin.xaml">
+    <Page Include="Views\AdministratorMeni.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Meni.xaml">
+    <Page Include="Views\AdminLetovi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PogledAviona.xaml">
+    <Page Include="Views\AdminUposlenici.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Avioni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pocetna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UposlenikMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UposlenikRezervacija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

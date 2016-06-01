@@ -1,0 +1,101 @@
+﻿<Page
+    x:Class="Aviokompanija.Views.Avioni"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aviokompanija.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:models="using:Aviokompanija.Models"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="AvioniListTemplate"  x:DataType="models:Avion">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                   
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Model}" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind BrojSjedista}" Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind BrojLetova}" Grid.Column="2" HorizontalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,-3,0,3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+
+            <ColumnDefinition Width="50"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="40"/>
+
+
+
+        </Grid.RowDefinitions>
+        <Image Source="Images/logoo.bmp" Margin="0,0,0,0" Width="330" VerticalAlignment="Top" Grid.ColumnSpan="4" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Broj sjedišta:" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding BrojSjedista, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+
+        <Button Content="Dodaj"  Background="#AACAEF"  Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="3" VerticalAlignment="Top" Command="{Binding DodavanjeAviona}" />
+        <Button Content="Izbriši"  Background="#AAbAEB" Margin="5,5,5,5" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Command="{Binding BrisanjeAviona}" />
+        <TextBlock Text="{Binding Verifikacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center" Foreground="Red"/>
+        <Button Content="Nazad"  Background="#AAAAEF"  Grid.Column="0" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="7" VerticalAlignment="Top" Command="{Binding NazadAdmin}" />
+
+
+        <ScrollViewer Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+
+            <ListView  ItemTemplate="{StaticResource AvioniListTemplate}" ItemsSource="{Binding SviAvioni, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="4" SelectedItem="{Binding KliknutiAvion, Mode=TwoWay}" Grid.RowSpan="1">
+                <ListView.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock HorizontalAlignment="Center" Grid.Column="0">Model</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Grid.Column="1">Broj sjedišta</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Grid.Column="2">Broj letova</TextBlock>
+                            </Grid>
+                            <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </ListView.Template>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Avioni:" VerticalAlignment="Top"/>
+        
+        
+    </Grid>
+</Page>
+

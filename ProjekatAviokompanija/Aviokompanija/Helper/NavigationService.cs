@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace ProjekatAutootpad.Autootpad.Helper
+namespace Aviokompanija.Helper
 {
     class NavigationService : INavigationService
     {

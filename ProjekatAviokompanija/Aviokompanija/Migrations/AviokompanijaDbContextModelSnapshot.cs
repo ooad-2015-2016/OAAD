@@ -14,14 +14,36 @@ namespace AviokompanijaMigrations
             builder
                 .Annotation("ProductVersion", "7.0.0-beta6-13815");
 
+            builder.Entity("Aviokompanija.Models.Administrator", b =>
+                {
+                    b.Property<int>("AdministratorId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adresa");
+
+                    b.Property<string>("BrojTelefona");
+
+                    b.Property<string>("Ime");
+
+                    b.Property<string>("Mail");
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Prezime");
+
+                    b.Property<string>("Username");
+
+                    b.Key("AdministratorId");
+                });
+
             builder.Entity("Aviokompanija.Models.Avion", b =>
                 {
                     b.Property<int>("AvionId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("BrojSjedista");
+                    b.Property<int>("BrojLetova");
 
-                    b.Property<bool>("Dostupnost");
+                    b.Property<int>("BrojSjedista");
 
                     b.Property<string>("Model");
 
@@ -55,13 +77,11 @@ namespace AviokompanijaMigrations
 
                     b.Property<int>("BrojZauzetihMjesta");
 
-                    b.Property<decimal>("Cijena");
+                    b.Property<int>("Cijena");
 
                     b.Property<string>("MjestoDolaska");
 
                     b.Property<string>("MjestoPolaska");
-
-                    b.Property<int?>("RezervacijaRezervacijaId");
 
                     b.Property<int>("Status");
 
@@ -79,11 +99,15 @@ namespace AviokompanijaMigrations
 
                     b.Property<int>("KolicinaPrtljaga");
 
-                    b.Property<decimal>("Popust");
+                    b.Property<int?>("KupacRezervacijeKupacId");
+
+                    b.Property<int?>("LetRezervacijeLetId");
+
+                    b.Property<bool>("Praznik");
+
+                    b.Property<int>("UkupnaCijena");
 
                     b.Property<int>("klasa");
-
-                    b.Property<int?>("kupacKupacId");
 
                     b.Key("RezervacijaId");
                 });
@@ -115,17 +139,17 @@ namespace AviokompanijaMigrations
                     b.Reference("Aviokompanija.Models.Avion")
                         .InverseCollection()
                         .ForeignKey("AvionLetaAvionId");
-
-                    b.Reference("Aviokompanija.Models.Rezervacija")
-                        .InverseCollection()
-                        .ForeignKey("RezervacijaRezervacijaId");
                 });
 
             builder.Entity("Aviokompanija.Models.Rezervacija", b =>
                 {
                     b.Reference("Aviokompanija.Models.Kupac")
                         .InverseCollection()
-                        .ForeignKey("kupacKupacId");
+                        .ForeignKey("KupacRezervacijeKupacId");
+
+                    b.Reference("Aviokompanija.Models.Let")
+                        .InverseCollection()
+                        .ForeignKey("LetRezervacijeLetId");
                 });
         }
     }

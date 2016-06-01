@@ -1,0 +1,201 @@
+﻿<Page
+    x:Class="Aviokompanija.Views.AdminLetovi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aviokompanija.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Aviokompanija.Models"
+    mc:Ignorable="d" >
+    <Page.Resources>
+        
+        <DataTemplate x:Key="AvioniListTemplate"  x:DataType="models:Avion">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Model}" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind BrojSjedista}" Grid.Column="1" HorizontalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+  
+        <DataTemplate x:Key="LetoviListTemplate"  x:DataType="models:Let">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{x:Bind LetId}" Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind MjestoPolaska}" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Center"/>
+
+                <TextBlock Text="{x:Bind MjestoDolaska}" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind VrijemePolaska}" Grid.Row="3"  Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind VrijemeDolaska}" Grid.Row="4" Grid.Column="1"  HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind Cijena}" Grid.Row="5"  Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind BrojZauzetihMjesta}" Grid.Row="6"  Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind Status}" Grid.Row="7" Foreground="Red"  Grid.Column="1" HorizontalAlignment="Center"/>
+
+                <TextBlock Text="LetId:" Grid.Row="0" HorizontalAlignment="Left"/>
+                <TextBlock Text="Mjesto polaska:" Grid.Row="1" HorizontalAlignment="Left"/>
+                <TextBlock Text="Mjesto dolaska:" Grid.Row="2" HorizontalAlignment="Left"/>
+                <TextBlock Text="Vrijeme polaska:" Grid.Row="3" HorizontalAlignment="Left"/>
+                <TextBlock Text="Vrijeme dolaska:" Grid.Row="4" HorizontalAlignment="Left"/>
+                <TextBlock Text="Cijena:" Grid.Row="5" HorizontalAlignment="Left"/>
+                <TextBlock Text="Broj zauzetih mjesta:" Grid.Row="6" HorizontalAlignment="Left"/>
+                <TextBlock Text="Status:" Grid.Row="7" HorizontalAlignment="Left"/>
+
+                <Rectangle   Grid.Row="7" HorizontalAlignment="Center" Margin="1,1,1,1" Fill="#FF4A618B" Grid.ColumnSpan="2" />
+
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,-3,0,3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="50*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+
+
+        </Grid.RowDefinitions>
+        <Image Source="Images/logoo.bmp" Margin="0,0,0,0" Width="330" VerticalAlignment="Top" Grid.ColumnSpan="4" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Izaberite avion:" VerticalAlignment="Top"/>
+
+
+        <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4">
+
+            <ListView  ItemTemplate="{StaticResource AvioniListTemplate}" ItemsSource="{Binding SviDostupniAvioni, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="4" SelectedItem="{Binding KliknutiAvion, Mode=TwoWay}" Grid.RowSpan="1">
+                <ListView.Template>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                               
+                                <RowDefinition Height="40*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+               
+                                </Grid.ColumnDefinitions>
+                               
+                            </Grid>
+                            <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </ListView.Template>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </ScrollViewer>
+
+        <TextBlock Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Mjesto polaska:" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding  MjestoPolaska, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Mjesto dolaska:" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding MjestoDolaska, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Vrijeme polaska:" VerticalAlignment="Top"/>
+        <DatePicker Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3" Date="{Binding VrijemePolaskaOS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="1"/>
+        <TimePicker Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" Margin="3,3,3,3" Time="{Binding VrijemePolaskaOS1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="1"/>
+
+        <TextBlock Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Vrijeme dolaska:" VerticalAlignment="Top"/>
+        <DatePicker Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"   Date="{Binding VrijemeDolaskaOS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="1"/>
+        <TimePicker Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" Margin="3,3,3,3"   Time="{Binding VrijemeDolaskaOS1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="1"/>
+
+        <TextBlock Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cijena:" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding Cijena, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+        
+
+        <Button Content="Dodaj"  Background="#AACAEF"  Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="8" VerticalAlignment="Top" Command="{Binding DodavanjeLeta}" />
+        
+        <Button Content="Izbriši"  Background="#AAbAEB" Margin="5,5,5,5" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Command="{Binding BrisanjeLeta}" />
+        <Button Content="Promijeni status"  Background="#FFE47C4B" Margin="5,5,5,5" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Command="{Binding MijenjajStatus}" />
+
+        <TextBlock Grid.Row="9" Text="{Binding Verifikacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.ColumnSpan="4" HorizontalAlignment="Center" Foreground="Red"/>
+        <Button Content="Nazad"  Background="#AAAAEF"  Grid.Column="0" HorizontalAlignment="Stretch" Margin="5,5,5,5" Grid.Row="13" VerticalAlignment="Top" Command="{Binding NazadAdmin}" />
+
+
+        <ScrollViewer  Grid.Row="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="4" Grid.RowSpan="2">
+
+            <ListView  ItemTemplate="{StaticResource LetoviListTemplate}" ItemsSource="{Binding SviLetovi, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Stretch" Grid.RowSpan="1" SelectedItem="{Binding KliknutiLet, Mode=TwoWay}" >
+                <ListView.Template>
+                    <ControlTemplate>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+
+
+                            </Grid>
+                            <ItemsPresenter Grid.Column="0"></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </ListView.Template>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Letovi:" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Page>
+

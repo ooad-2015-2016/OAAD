@@ -17,10 +17,11 @@ namespace Aviokompanija.Models
         public DbSet<Let> Letovi { get; set; }
         public DbSet<Uposlenik> Uposlenici { get; set; }
         public DbSet<Rezervacija> Rezervacije { get; set; }
+        public DbSet<Administrator> Administratori { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string databaseFilePath = "AviokompanijaBaza.db";
+            string databaseFilePath = "AviokompanijaBazaaa.db";
             try
             {
                 databaseFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, databaseFilePath);

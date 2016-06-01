@@ -27,6 +27,23 @@ namespace Aviokompanija.Models
                 context.SaveChanges();
             }
 
+            if (!context.Administratori.Any())
+            {
+                context.Administratori.AddRange(
+                    new Administrator()
+                    {
+                        Ime = "muso",
+                        Prezime = "music",
+                        BrojTelefona = "0038762222222",
+                        Adresa = "Bulevar 20",
+                        Mail = "husohusic@etf.unsa.ba",
+                        Username = "admin",
+                        Password = "admin",
+                    }
+                );
+                context.SaveChanges();
+            }
+
             if (!context.Avioni.Any())
             {
                 context.Avioni.AddRange(
@@ -34,7 +51,7 @@ namespace Aviokompanija.Models
                     {
                         Model = "Embraer 106",
                         BrojSjedista = 100,
-                        Dostupnost = true,
+                        BrojLetova=0,
                     }
                 );
                 context.SaveChanges();
