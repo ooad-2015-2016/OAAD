@@ -139,7 +139,7 @@ namespace Aviokompanija.ViewModels
                 using (var db = new AviokompanijaDbContext())
                 {
                     int Cijena;
-                    if (SaPopustom == true) Cijena = (int)((double)KliknutiLet.Cijena + (double)Prtljag * 30 - (((double)KliknutiLet.Cijena + (double)Prtljag * 30) * 0.9));
+                    if (SaPopustom == true) Cijena = (int)((double)KliknutiLet.Cijena + (double)Prtljag * 30 - (((double)KliknutiLet.Cijena + (double)Prtljag * 30) * 0.1));
                     else Cijena = KliknutiLet.Cijena + Prtljag * 30;
                     if ((int)ToggleKlasa == 0) Cijena += 40;
                     else if ((int)ToggleKlasa == 1) Cijena += 20;
@@ -158,14 +158,21 @@ namespace Aviokompanija.ViewModels
 
                 using (var db = new AviokompanijaDbContext())
                 {
-                    Rezervacija pronadjeni = db.Rezervacije.Where(x => x.RezervacijaId == KliknutaRezervacija.RezervacijaId).FirstOrDefault();
-                    Let av = db.Letovi.FirstOrDefault();
-                    pronadjeni.LetRezervacije.BrojZauzetihMjesta -= 1;
-                    db.Remove(pronadjeni);
-                    db.SaveChanges();
-                    Verifikacija = "Uspješno izbrisana rezervacija.";
-                    NotifyPropertyChanged("Verifikacija");
-                    NotifyPropertyChanged("SveRezervacije");
+                    Rezervacija pronadjeni = db.Rezervacije.Where(x => x.RezervacijaId == KliknutaRezervacija.RezervacijaId).SingleOrDefault();
+                    if(pronadjeni != null)
+                    {
+                        if(pronadjeni.LetRezervacije != null)
+                            pronadjeni.LetRezervacije.BrojZauzetihMjesta -= 1;
+
+                        db.Remove(pronadjeni);
+                        db.SaveChanges();
+                        Verifikacija = "Uspješno izbrisana rezervacija.";
+                        NotifyPropertyChanged("Verifikacija");
+                        NotifyPropertyChanged("SveRezervacije");
+                    }
+                    // Let av = db.Letovi.FirstOrDefault();
+
+                    
 
                 }
             }
@@ -210,7 +217,7 @@ namespace Aviokompanija.ViewModels
                     novi.KolicinaPrtljaga = Prtljag;
                     novi.klasa = ToggleKlasa;
                     novi.Praznik = SaPopustom;
-                    if (SaPopustom == true) novi.UkupnaCijena = (int)((double)KliknutiLet.Cijena + (double)Prtljag * 30 - (((double)KliknutiLet.Cijena + (double)Prtljag * 30) * 0.9));
+                    if (SaPopustom == true) novi.UkupnaCijena = (int)((double)KliknutiLet.Cijena + (double)Prtljag * 30 - (((double)KliknutiLet.Cijena + (double)Prtljag * 30) * 0.1));
                     else novi.UkupnaCijena = KliknutiLet.Cijena + Prtljag * 30;
 
                     if ((int)ToggleKlasa == 0) novi.UkupnaCijena += 40;

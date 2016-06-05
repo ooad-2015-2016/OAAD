@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
    >
+    <ScrollViewer>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
@@ -35,6 +36,9 @@
                 <Button Content="Login uposlenika" Width="150" Height="50" HorizontalAlignment="Stretch" RenderTransformOrigin="0.418,1.025" Command="{Binding UposlenikLogin}" Margin="10,10,10,10" Background="#AACAEF" />
                 <Button  Content="Administracija" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" RenderTransformOrigin="0.418,1.025" Command="{Binding AdminLogin}" Background="#8090E0"/>
                 <Button  Content="Izlaz" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" Grid.Row="7" RenderTransformOrigin="0.418,1.025" Command="{Binding Izlaz}" Background="#A8AFD5"/>
+                <Button  Content="Help" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" Grid.Row="7" RenderTransformOrigin="0.418,1.025" Command="{Binding Help}" Background="#A8AFD5"/>
+                <TextBlock Width="350" Text="{Binding Verifikacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Center" Foreground="Red" TextWrapping="WrapWholeWords" />
+
             </StackPanel>
 
         </StackPanel>
@@ -43,4 +47,5 @@
 
 
     </Grid>
+    </ScrollViewer>
 </Page>

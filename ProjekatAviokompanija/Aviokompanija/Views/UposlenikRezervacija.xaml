@@ -80,7 +80,7 @@
                 <TextBlock Text="{x:Bind UkupnaCijena}" Grid.Row="4" Grid.Column="1"  HorizontalAlignment="Center"/>
             
                 <TextBlock Text="RezervacijaId:" Grid.Row="0" HorizontalAlignment="Left"/>
-                <TextBlock Text="Klasaa:" Grid.Row="1" HorizontalAlignment="Left"/>
+                <TextBlock Text="Klasa:" Grid.Row="1" HorizontalAlignment="Left"/>
                 <TextBlock Text="Popust:" Grid.Row="2" HorizontalAlignment="Left"/>
                 <TextBlock Text="Količina prtljaga:" Grid.Row="3" HorizontalAlignment="Left"/>
                 <TextBlock Text="Ukupna cijena:" Grid.Row="4" HorizontalAlignment="Left"/>

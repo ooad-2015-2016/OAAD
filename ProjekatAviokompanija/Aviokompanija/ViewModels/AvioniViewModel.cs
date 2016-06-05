@@ -34,6 +34,9 @@ namespace Aviokompanija.ViewModels
                         return db.Avioni.OrderBy(x => x.BrojLetova).ToList();
                    
 
+
+
+                    
                 }
             }
         }

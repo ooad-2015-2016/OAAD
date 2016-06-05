@@ -21,6 +21,8 @@ namespace Aviokompanija.ViewModels
         public string VerifikacijaPoruka { get; set; }
         public string UpisaniUsername { get; set; }
         public string UpisaniPass { get; set; }
+        public string Verifikacija { get; set; }
+
 
         public INavigationService NavigationService { get; set; }
         public ICommand AdminLogin { get; set; }
@@ -34,6 +36,9 @@ namespace Aviokompanija.ViewModels
         public ICommand MeniLetovi { get; set; }
         public ICommand MeniUposlenici { get; set; }
         public ICommand MeniAvioni { get; set; }
+
+        public ICommand Help { get; set; }
+
 
 
 
@@ -57,7 +62,7 @@ namespace Aviokompanija.ViewModels
             UlogovaniRadnik = new Uposlenik();
             VerifikacijaPoruka = "";
             UpisaniPass = "";
-            UpisaniUsername = "";
+            UpisaniUsername = Verifikacija = "";
 
 
             UposlenikLogin = new RelayCommand<object>(loginRadnika);
@@ -69,6 +74,8 @@ namespace Aviokompanija.ViewModels
             MeniLetovi = new RelayCommand<object>(meniLetovi);
             MeniUposlenici = new RelayCommand<object>(meniUposlenici);
             MeniAvioni = new RelayCommand<object>(meniAvioni);
+
+            Help = new RelayCommand<object>(help);
 
 
         }
@@ -86,7 +93,7 @@ namespace Aviokompanija.ViewModels
             UlogovaniAdministrator = pvm.UlogovaniAdministrator;
             VerifikacijaPoruka = "";
             UpisaniPass = "";
-            UpisaniUsername = "";
+            UpisaniUsername = Verifikacija= "";
 
             UposlenikLogin = new RelayCommand<object>(loginRadnika);
             AdminLogin = new RelayCommand<object>(adminLogin);
@@ -97,6 +104,7 @@ namespace Aviokompanija.ViewModels
             MeniLetovi = new RelayCommand<object>(meniLetovi);
             MeniUposlenici = new RelayCommand<object>(meniUposlenici);
             MeniAvioni = new RelayCommand<object>(meniAvioni);
+            Help = new RelayCommand<object>(help);
 
 
         }
@@ -181,6 +189,13 @@ namespace Aviokompanija.ViewModels
         private void meniLetovi(object parametar)
         {
             NavigationService.Navigate(typeof(AdminLetovi), new AdminLetoviViewModel());
+        }
+
+        private void help(object parametar)
+        {
+            Verifikacija = "Upute za korištenje: \rMoguć je login kao admin i kao uposlenik. Nakon logovanja kao admin, dolazi se na meni sa opcijama: Avioni, Letovi, Uposlenici. Biranjem stavke Avioni, otvara se novi prozor gdje se mogu dodavati novi avioni i brisati avioni. Odabirom stavke Uposlenici u meniju, otvara se novi prozor gdje se mogu dodavati i brisati uposlenici. Odabirom stavke Letovi u meniju, otvara se novi prozor, gdje se mogu dodavati i brisati letovi. Dodavanje leta podrazumijeva i dodavanje aviona letu, koje se vrši odabirom aviona sa ponuđene liste. Moguće je i odabrati datum i vrijeme polaska i dolaska. Ukoliko se korisnik loguje kao uposlenik, moguće je sa menija odabrati stavku Rezervacije. Otvara se novi prozor za dodavanje i brisanje rezervacija. Nakon unošenja mjesta polaska i dolaska, klikom na Dugme Osvježi, pojavljuju se svi dostupni letovi s tim destinacijama. Osim popunjavanja podataka o kupcu i biranju leta, moguće je i uračunati popust klikom na checkbox, kao i mijenjanje klase klikanjem na dugme \" Mijenjaj klasu \". Klikom na dugme Izračunaj, prikazuje se ukupna cijena rezervacije sa svim odabranim parametrima. Sva brisanja u svim menijima se uvijek vrše prethodnim odabirom stavke sa liste. Također, svaki prozor sadrži Nazad tipku, kojom se vraća na prethodni prozor.";
+            NotifyPropertyChanged("Verifikacija");
+
         }
     }
 }
