@@ -15,19 +15,42 @@
         <Grid.ColumnDefinitions>
 
         </Grid.ColumnDefinitions>
-        
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="Meni.Orientation"
+                                Value="Horizontal" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
         <Image Source="Images/slika.bmp" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
 
 
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,80,0,0">
+        <Image Source="Images/logoo.bmp" Margin="0,0,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <StackPanel x:Name="Meni" Orientation="Vertical"   Margin="0,80,0,0">
+
             <Button Content="Letovi" Width="150" Height="50" HorizontalAlignment="Stretch" RenderTransformOrigin="0.418,1.025" Command="{Binding MeniLetovi}" Margin="10,10,10,10" Background="#AACAEF" />
             <Button  Content="Uposlenici" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" RenderTransformOrigin="0.418,1.025" Command="{Binding MeniUposlenici}" Background="#8090E0"/>
             <Button  Content="Avioni" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" RenderTransformOrigin="0.418,1.025" Command="{Binding MeniAvioni}" Background="#418AE8"/>
             <Button  Content="Logout" Width="150" Height="50" HorizontalAlignment="Stretch"  Margin="10,10,10,10" Grid.Row="7" RenderTransformOrigin="0.418,1.025" Command="{Binding MeniLogout}" Background="#A8AFD5"/>
+
+
         </StackPanel>
 
-        <Image Source="Images/logoo.bmp" Margin="0,0,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
 
     </Grid>

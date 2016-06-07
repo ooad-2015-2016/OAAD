@@ -104,6 +104,8 @@ namespace Aviokompanija.ViewModels
                 
                 using (var db = new AviokompanijaDbContext())
                 {
+                    NotifyPropertyChanged("KliknutiLet");
+
                     Let pronadjeni =  db.Letovi.Where(x => x.LetId == KliknutiLet.LetId).FirstOrDefault();
                      Avion av = db.Avioni.FirstOrDefault();
                      NotifyPropertyChanged("Verifikacija");
@@ -114,6 +116,7 @@ namespace Aviokompanija.ViewModels
                    NotifyPropertyChanged("Verifikacija");
                     NotifyPropertyChanged("SviLetovi");
                     NotifyPropertyChanged("SviDostupniAvioni");
+                    NotifyPropertyChanged("KliknutiLet");
 
                 }
             }
